@@ -35,9 +35,10 @@ volumes:[
     def pwd = pwd()
     def chart_dir = "${pwd}/charts/croc-hunter"
 
+    // staticMethod java.lang.System getenv
     println "hello i am in salve"
     for (e in System.getenv()) {
-      println "e.key=e.value"
+      println "{e.key}={e.value}"
     }
 
     checkout scm
