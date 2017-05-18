@@ -1,0 +1,25 @@
+{
+  "app": {
+    "name": "croc-hunter",
+    "replicas": "3",
+    "cpu": "10m",
+    "memory": "128Mi",
+    "test": true
+  },
+  "container_repo": {
+    "host": "localhost:5000",
+    "master_acct": "spuranam",
+    "alt_acct": "spuranam",
+    "jenkins_creds_id": "quay_creds",
+    "repo": "croc-hunter",
+    "dockeremail": ".",
+    "dockerfile": "./"
+  },
+  "pipeline": {
+      "enabled": true,
+      "debug": false,
+      "library": {
+        "branch": "master"
+      }
+  }
+}
