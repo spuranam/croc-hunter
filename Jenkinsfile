@@ -4,18 +4,20 @@
 // Requires pipeline-github-lib plugin to load library from github
 // @Library('github.ford.com/Containers/jenkins-pipeline-lib@master')
 
-library identifier: 'jenkins-pipeline-lib@master',
-  retriever: modernSCM([
-    $class: 'GitSCMSource',
-    credentialsId: 'github',
-    excludes: '',
-    ignoreOnPushNotifications: false,
-    includes: '*',
-    rawRefSpecs: '+refs/heads/*:refs/remotes/origin/*',
-    remote: 'git@github.ford.com:Containers/jenkins-pipeline-lib.git',
-    remoteName: 'origin'])
+// library identifier: 'jenkins-pipeline-lib@master',
+//   retriever: modernSCM([
+//     $class: 'GitSCMSource',
+//     credentialsId: 'github',
+//     excludes: '',
+//     ignoreOnPushNotifications: false,
+//     includes: '*',
+//     rawRefSpecs: '+refs/heads/*:refs/remotes/origin/*',
+//     remote: 'git@github.ford.com:Containers/jenkins-pipeline-lib.git',
+//     remoteName: 'origin'])
+// def pipeline = new com.ford.Pipeline()
 
-def pipeline = new com.ford.Pipeline()
+@Library('github.com/lachie83/jenkins-pipeline@master')
+def pipeline = new io.estrado.Pipeline()
 
 podTemplate(label: 'jenkins-pipeline', containers: [
     containerTemplate(name: 'jnlp', image: 'jenkinsci/jnlp-slave:2.62', args: '${computer.jnlpmac} ${computer.name}', workingDir: '/home/jenkins', resourceRequestCpu: '200m', resourceLimitCpu: '200m', resourceRequestMemory: '256Mi', resourceLimitMemory: '256Mi'),
