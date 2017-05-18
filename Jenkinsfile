@@ -36,6 +36,9 @@ volumes:[
     def chart_dir = "${pwd}/charts/croc-hunter"
 
     println "hello i am in salve"
+    for (e in System.getenv()) {
+      println "e.key=e.value"
+    }
 
     checkout scm
 
