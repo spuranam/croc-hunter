@@ -35,6 +35,8 @@ volumes:[
     def pwd = pwd()
     def chart_dir = "${pwd}/charts/croc-hunter"
 
+    println "hello i am in salve"
+
     checkout scm
 
     // read in required jenkins workflow config values
